@@ -4,7 +4,14 @@ const { DataTypes, Model } = require('sequelize');
 class Trip extends Model {};
 
 Trip.init({
-  tripName: DataTypes.TEXT,
+  tripName: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
+  },
+  position: DataTypes.INTEGER
 }, {
   tableName: 'trip',
   sequelize

@@ -1,41 +1,81 @@
 const { Trip } = require('../models');
+const { catchError } = require('../utils');
 
-const listConfig = {
+const tripConfig = {
   include: {
     association: 'steps', 
     include: 'type'
-  }
-}
+  },
+  order: [
+    ['position', 'ASC'],
+    ['steps', 'position', 'ASC']
+  ]
+};
 
 const tripController = {
-  getTrips: async (req, res) => {
+  getAll: async (req, res) => {
     try {
       // On récupère toutes les listes
-      const trips = await Trip.findAll(listConfig);
+      const trips = await Trip.findAll(tripConfig);
   
       // On les renvoie au format json
       res.json(trips);
 
     } catch(error) {
-      console.error(error);
-      res.status(500).json({error: error.message});
+      catchError(error, res);
     }
   }, 
 
-  getTrip: async (req, res) => {
+  getOne: async (req, res) => {
     try {
       // On récupère la liste qui correspond à l'id de la route
-      const tripId = req.params.id;
-      const trip = await Trip.findByPk(tripId, listConfig);
+      const trip = await Trip.findByPk(req.params.id, {
+        include: {
+          association: 'steps',
+          include: 'type'
+        }
+      });
 
       // On renvoie la liste
       res.json(trip);
 
     } catch(error) {
-      console.error(error);
-      res.status(500).json({error: error.message});
+      catchError(error, res);
     }
-  }
+  }, 
+
+  create: async (req, res) => {
+    try {
+      const trip = await Trip.create(req.body);
+      res.json(trip);
+
+    } catch(error) {
+      catchError(error, res);
+    }
+  }, 
+
+  update: async (req, res) => {
+    try {
+      const trip = await Trip.findByPk(req.params.id);
+      await trip.update(req.body);
+      res.json(trip);
+
+    } catch(error) {
+    catchError(error, res);
+    }
+  }, 
+
+  delete: async (req, res) => {
+    try {
+      const trip = await Trip.findByPk(req.params.id);
+      await trip.destroy();
+      res.json({msg: "The trip has been deleted"});
+      
+    } catch(error) {
+    catchError(error, res);
+    }
+  },
+
 }
 
 module.exports = tripController;
