@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS "step_type" (
 CREATE TABLE IF NOT EXISTS "step" (
   id SERIAL PRIMARY KEY,
   position INT NOT NULL,
+  travel_name TEXT NOT NULL DEFAULT 'transport',
   "start_date" DATE NOT NULL,
   end_date DATE,
   start_time TIME,
@@ -51,11 +52,13 @@ INSERT INTO "trip"("trip_name", "slug", "position", "user_id") VALUES
 INSERT INTO "step_type"("code", "name") VALUES
 ('fasttrain', 'Fast train'),
 ('train', 'Train'),
-('hotel', 'Hotel');
+('car', 'Car');
 
-INSERT INTO "step"("trip_id", "position", "start_date", "end_date", "start_time", "end_time", "point_departure", "point_arrival", "details", "step_type") VALUES
-(1, 1, '07/21/2022', '07/21/2022', '15:13:00', '16:30:00', 'Paris', 'London', 'Coach 10, 55/56', 1),
-(2, 1, '08/15/2022', '08/15/2022', '09:55:00', '16:30:00', 'Paris', 'Cologne', 'Voiture 27', 1),
-(1, 2, '07/21/2022','07/21/2022', '21:15:00', '08:47', 'London', 'Inverness', 'Coach M, 06U/06L', 2);
+INSERT INTO "step"("trip_id", "position", "travel_name", "start_date", "end_date", "start_time", "end_time", "point_departure", "point_arrival", "details", "step_type") VALUES
+(1, 1, 'Eurostar', '07/21/2022', '07/21/2022', '15:13:00', '16:30:00', 'Paris', 'London', 'Coach 10, 55/56', 1),
+(2, 1, 'Thalys', '08/15/2022', '08/15/2022', '09:55:00', '16:30:00', 'Paris', 'Cologne', 'Voiture 27', 1),
+(1, 2, 'Caledonian Sleeper', '07/21/2022','07/21/2022', '21:15:00', '08:47:00', 'London', 'Inverness', 'Coach M, 06U/06L', 2),
+(1, 3, 'Train', '07/22/2022','07/22/2022', '10:56:00', '13:35:00', 'Inverness', 'Kyle of Lochlash', '', 2),
+(1, 4, 'Car hire', '07/22/2022','07/22/2022', '14:00:00', '15:00', 'Kyle of Lochlash', 'Broadfrd', '', 3);
 
 COMMIT;
