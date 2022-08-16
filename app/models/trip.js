@@ -1,7 +1,7 @@
 const sequelize = require('../database');
 const { DataTypes, Model } = require('sequelize');
 
-class Trip extends Model {};
+class Trip extends Model { };
 
 Trip.init({
   tripName: {
@@ -11,6 +11,7 @@ Trip.init({
       notEmpty: true
     }
   },
+  slug: DataTypes.TEXT,
   position: DataTypes.INTEGER
 }, {
   tableName: 'trip',

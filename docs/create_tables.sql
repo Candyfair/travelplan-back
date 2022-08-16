@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS "user" (
 CREATE TABLE IF NOT EXISTS "trip" (
   id SERIAL PRIMARY KEY,
   trip_name TEXT NOT NULL,
+  slug TEXT NOT NULL,
   position INT NOT NULL,
   user_id INTEGER NOT NULL REFERENCES "user"(id)
 );
@@ -43,9 +44,9 @@ INSERT INTO "user"("username", "email", "password") VALUES
 ('candice', 'candice.bastien@gmail.com', '123'),
 ('christian', 'christiannicholasbaker@outlook.fr', '123');
 
-INSERT INTO "trip"("trip_name", "position", "user_id") VALUES
-('Scotland', 1, 1),
-('Germany', 2, 2);
+INSERT INTO "trip"("trip_name", "slug", "position", "user_id") VALUES
+('Scottish Highlands Super Trip', 'scottish-highlands-super-trip', 1, 1),
+('Europe Inter-Rail Fab Trip', 'europe-inter-rail-fab-trip', 2, 2);
 
 INSERT INTO "step_type"("code", "name") VALUES
 ('fasttrain', 'Fast train'),

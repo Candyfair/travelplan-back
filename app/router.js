@@ -15,25 +15,24 @@ router.delete('/users/:id', userController.delete);
 
 // API trips
 router.route('/trips')
-.get(tripController.getAll)
-.post(tripController.create);
+  .get(tripController.getAll)
+  .post(tripController.create);
 
 router.route('/trips/:id')
-.get(tripController.getOne) 
-.patch(tripController.update)
-.delete(tripController.delete);
+  .get(tripController.getOne)
+  .patch(tripController.update)
+  .delete(tripController.delete);
 
 // API steps
 router.post('/steps', stepController.create);
 
 router.route('/steps/:id')
-.get(stepController.getOne)
-.patch(stepController.update)
-.delete(stepController.delete);
+  .get(stepController.getOne)
+  .patch(stepController.update)
+  .delete(stepController.delete);
 
+router.get('/trips/:id/steps', tripController.getStepsFromTrip);
 
-
-// router.post('/trips/:id/steps', tripController.addStepToTrip);
 // router.update('/trips/:idTrip/steps/:idSteps', tripController.updateStep);
 // router.delete('/trips/:idTrip/steps/:idSteps', tripController.deleteStep);
 
