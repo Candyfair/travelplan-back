@@ -4,16 +4,7 @@ const express = require('express');
 const app = express();
 
 const cors = require('cors');
-app.use(cors('*'));
-
-// Connection to Heroku Postgres
-// const { Pool } = require('pg');
-// const pool = new Pool({
-//   connectionString: process.env.DATABASE_URL,
-//   ssl: {
-//     rejectUnauthorized: false
-//   }
-// });
+app.use(cors('https://itinerary-publisher.vercel.app/'));
 
 const sanitizer = require('sanitizer');
 app.use((req, res, next) => {
