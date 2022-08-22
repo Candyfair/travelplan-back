@@ -16,7 +16,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 const router = require('./app/router');
 app.use(router);
