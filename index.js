@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 
 const cors = require('cors');
-app.use(cors('https://itinerary-publisher.vercel.app/'));
+app.use(cors('*'));
 
 const sanitizer = require('sanitizer');
 app.use((req, res, next) => {
