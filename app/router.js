@@ -4,7 +4,7 @@ const router = Router();
 const userController = require('./controllers/userController');
 const tripController = require('./controllers/tripController');
 const stepController = require('./controllers/stepController');
-// const stepController = require('./controllers/stepController');
+const typeController = require('./controllers/typeController');
 
 // API users
 router.get('/users', userController.getAll);
@@ -33,7 +33,8 @@ router.route('/steps/:id')
 
 router.get('/trips/:id/steps', tripController.getStepsFromTrip);
 
-// router.update('/trips/:idTrip/steps/:idSteps', tripController.updateStep);
-// router.delete('/trips/:idTrip/steps/:idSteps', tripController.deleteStep);
+// API types
+router.get('/types', typeController.getAll);
+
 
 module.exports = router;
