@@ -10,7 +10,8 @@ const stepController = {
   getOne: async (req, res) => {
     try {
       const step = await Step.findByPk(req.params.id, {
-        include: 'type'
+        include: 'type',
+        order: ['position', 'ASC']
       });
       res.json(step);
 

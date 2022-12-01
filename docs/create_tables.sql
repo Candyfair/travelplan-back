@@ -67,12 +67,21 @@ INSERT INTO "step_type"("code", "name") VALUES
 ('other', 'Other');
 
 INSERT INTO "step"("trip_id", "position", "travel_name", "start_date", "end_date", "start_time", "end_time", "point_departure", "point_arrival", "details", "step_type") VALUES
-(1, 1, 'Eurostar', '07/21/2022', '07/21/2022', '15:13:00', '16:30:00', 'Paris', 'London', 'Coach 10, 55/56', 3),
-(2, 1, 'Thalys', '08/15/2022', '08/15/2022', '09:55:00', '13:16:00', 'Paris', 'Cologne', 'Voiture 27', 3),
-(1, 2, 'Caledonian Sleeper', '07/21/2022','07/21/2022', '21:15:00', '08:47:00', 'London', 'Inverness', 'Coach M, 06U/06L', 3),
-(1, 3, 'Train', '07/22/2022','07/22/2022', '10:56:00', '13:35:00', 'Inverness', 'Kyle of Lochlash', '', 3),
-(1, 4, 'Car hire', '07/22/2022','07/22/2022', '14:00:00', '15:00:00', 'Kyle of Lochlash', 'Broadford', '', 5),
-(2, 2, 'Dorint an der Messe', '08/15/2022', '08/16/2022', '00:00:00', '00:00:00', 'Cologne', 'Cologne', 'Deutz-Müleimer-Str', 11);
-
+(1, 15, 'Eurostar', '07/21/2023', '07/21/2023', '15:13:00', '16:30:00', 'Paris', 'London', 'Coach 10, 55/56', 3),
+(2, 1, 'Thalys', '08/15/2023', '08/15/2023', '09:55:00', '13:16:00', 'Paris', 'Cologne', 'Voiture 27', 3),
+(1, 2, 'Caledonian Sleeper', '07/21/2023','07/21/2023', '21:15:00', '08:47:00', 'London', 'Inverness', 'Coach M, 06U/06L', 2),
+(1, 3, 'Train', '07/22/2023','07/22/2023', '10:56:00', '13:35:00', 'Inverness', 'Kyle of Lochlash', '', 2),
+(1, 4, 'Car hire', '07/22/2023','07/22/2023', '14:00:00', '15:00:00', 'Kyle of Lochlash', 'Broadford', 'Morar Motors', 5),
+(1, 5, 'B&B', '07/22/2023','07/23/2023', '18:00:00', '11:00:00', 'Broadford', 'Broadford', '3 Swordale Broadfoard', 11),
+(1, 6, 'Car', '07/23/2023','07/23/2023', '13:00:00', '14:00:00', 'Broadford', 'Greshornish', '', 5),
+(1, 7, 'B&B', '07/23/2023','07/30/2023', '15:00:00', '10:00:00', 'Greshornish', 'Greshornish', '', 11),
+(1, 8, 'Car', '07/30/2023','07/30/2023', '08:30:00', '09:30:00', 'Greshornish', 'Armadale', '', 5),
+(1, 9, 'Caledonian McBrayne', '07/30/2023','07/30/2023', '10:20:00', '11:25:00', 'Armadale', 'Mallaig', '', 6),
+(1, 10, 'Car', '07/30/2023','07/30/2023', '15:00:00', '15:30:00', 'Mallaig', 'Morar', '', 5),
+(1, 11, 'Train', '07/30/2023','07/30/2023', '16:05:00', '21:25:00', 'Morar', 'Glasgow', '', 2),
+(1, 12, 'Hotel', '07/30/2023','08/02/2023', '15:00:00', '12:00:00', 'Glasgow', 'Glasgow', 'Marriott Hotel', 11),
+(1, 13, 'Caledonian Sleeper', '08/02/2023','08/03/2023', '23:40:00', '07:07:00', 'Glasgow', 'London', '', 2),
+(1, 14, 'Eurostar', '08/03/2023','08/03/2023', '19:01:00', '21:17:00', 'London', 'Paris', '', 3),
+(2, 2, 'Dorint an der Messe', '08/15/2023', '08/16/2023', '00:00:00', '00:00:00', 'Cologne', 'Cologne', 'Deutz-Müleimer-Str', 11);
 
 COMMIT;
