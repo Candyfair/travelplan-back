@@ -11,7 +11,6 @@ const stepController = {
     try {
       const step = await Step.findByPk(req.params.id, {
         include: 'type',
-        order: ['position', 'ASC']
       });
       res.json(step);
 
