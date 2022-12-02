@@ -33,7 +33,9 @@ const tripController = {
         include: {
           association: 'steps',
           include: 'type',
-          order: ['position', 'ASC']
+          order: [
+            ['position', 'ASC']
+          ] 
         }
       });
 
