@@ -32,10 +32,7 @@ const tripController = {
       const trip = await Trip.findByPk(req.params.id, {
         include: {
           association: 'steps',
-          include: 'type',
-          order: [
-            ['steps', 'position', 'ASC']
-          ] 
+          include: 'type'
         }
       });
 
