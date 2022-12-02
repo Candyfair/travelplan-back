@@ -34,7 +34,7 @@ const tripController = {
           association: 'steps',
           include: 'type',
           order: [
-            ['position', 'ASC']
+            ['steps', 'position', 'ASC']
           ] 
         }
       });
